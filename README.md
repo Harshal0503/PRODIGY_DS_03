@@ -1,46 +1,41 @@
-# Prodigy InfoTech Data Science Internship - Task 2
+# Prodigy InfoTech Data Science Internship - Task 3
 
-## Project: Titanic Dataset Exploratory Data Analysis (EDA)
+## Project: Customer Purchase Prediction using Decision Tree Classifier
 
-This repository contains the work for **Task 2** of my Data Science internship at **Prodigy InfoTech**. The primary objective was to perform data cleaning and exploratory data analysis (EDA) on the Titanic dataset to identify patterns and factors that influenced passenger survival.
+This repository contains the work for **Task 3** of my Data Science internship at **Prodigy InfoTech**. The primary objective was to build a decision tree classifier to predict whether a customer will purchase a product or service based on their demographic and behavioral data.
 
 ---
 
 ## 🔍 Overview
-The Titanic project is a classic data science challenge. This analysis focuses on understanding the relationship between passenger features (like age, gender, and socio-economic class) and their survival outcome.
+Predicting customer behavior is a core application of machine learning in business. This project utilizes a decision tree algorithm to create a model that classifies customers based on the likelihood of them subscribing to a term deposit, providing a clear visual representation of the decision-making process.
 
 ## 📊 Dataset
-The dataset used is the **Titanic Dataset** from Kaggle, which contains information about 891 passengers, including:
-* **Survived**: 0 = No, 1 = Yes
-* **Pclass**: Ticket class (1st, 2nd, 3rd)
-* **Sex**: Gender
-* **Age**: Age in years
-* **SibSp**: # of siblings / spouses aboard
-* **Parch**: # of parents / children aboard
-* **Fare**: Passenger fare
-* **Embarked**: Port of Embarkation
+The dataset used for this project is the **Bank Marketing Dataset**, sourced from the UCI Machine Learning Repository.
+* **Dataset Link:** [UCI Bank Marketing Dataset](https://archive.ics.uci.edu/dataset/222/bank+marketing)
+* **Description**: It contains data from direct marketing campaigns (phone calls) of a Portuguese banking institution.
 
 ## 🛠 Tools & Libraries
 * **Python**: Core programming language.
-* **Pandas**: For data manipulation and cleaning.
-* **NumPy**: For numerical operations.
-* **Matplotlib & Seaborn**: For creating static, animated, and interactive visualizations.
+* **Pandas & NumPy**: For data manipulation and feature engineering.
+* **Matplotlib & Seaborn**: For visualizing class distributions and correlations.
+* **Scikit-Learn**: For building the `DecisionTreeClassifier` and evaluating performance.
 * **Google Colab**: Development environment.
 
-## 🧹 Data Cleaning
+## 🧹 Data Preprocessing
 Key steps taken to prepare the data:
-1. **Handled Missing Values**: Filled missing 'Age' values with the median and 'Embarked' with the mode.
-2. **Feature Selection**: Dropped the 'Cabin' column due to an excessive number of null values.
-3. **Data Formatting**: Converted categorical variables into a format suitable for analysis.
+1. **Categorical Encoding**: Converted textual data into numerical format using Label Encoding to make it compatible with the Scikit-Learn classifier.
+2. **Handling Imbalance**: Analyzed the distribution of the target variable to understand class frequency.
+3. **Train-Test Split**: Divided the dataset into training (80%) and testing (20%) sets to ensure unbiased evaluation.
 
-## 📈 Exploratory Data Analysis
-I explored several variables to see how they impacted survival:
-* **Gender Analysis**: Comparison of survival rates between males and females.
-* **Class Analysis**: Distribution of survival based on passenger class.
-* **Age Distribution**: Understanding which age groups were most likely to survive.
-* **Correlation Heatmap**: Visualizing the relationships between all numerical features.
+## 📉 Model Building
+I implemented a classification model with the following steps:
+* **Classifier**: Used `DecisionTreeClassifier` with the Gini impurity criterion.
+* **Tree Visualization**: Generated a graphical representation of the tree to understand the decision-making logic and feature importance.
+* **Evaluation Metrics**: Assessed the model using a Confusion Matrix, Accuracy Score, and a detailed Classification Report.
 
 ## 💡 Key Insights
-* **Gender**: Female passengers had a significantly higher survival rate than males.
-* **Class**: Passengers in 1st class were prioritized and had the highest survival percentage.
-* **Family Size**: Passengers traveling with small families had a better survival rate than those traveling alone or with very large families.
+* **Call Duration**: The duration of the last contact was a high-impact predictor; longer calls often correlated with successful subscriptions.
+* **Previous Outcome**: Customers who were successfully contacted in previous campaigns were much more likely to subscribe again.
+* **Demographics**: Specific age groups and job categories (e.g., students and retirees) showed distinct patterns in subscription rates.
+
+---
